@@ -8,8 +8,8 @@ import '../../../../src/components/buttons/text_form_field/text_form_field.dart'
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView(this._isLogin, {Key? key}) : super(key: key);
-  final bool _isLogin;
+  const LoginView(this.isLogin, {Key? key}) : super(key: key);
+  final bool isLogin;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +39,9 @@ class LoginView extends GetView<LoginController> {
                 ],
               ),
               CustomButton(
-                text: _isLogin ? "Login" : "Register",
                 onPressed: () {},
-              )
+                text: isLogin ? "Login" : "Register",
+              ),
             ],
           ),
         ),

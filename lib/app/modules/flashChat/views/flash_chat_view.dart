@@ -22,7 +22,7 @@ class FlashChatView extends GetView<FlashChatController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const AnimationLogo(
-                size: 180,
+                size: 120,
               ),
               DefaultTextStyle(
                 style: AppTextStyles.flashChatstyle,

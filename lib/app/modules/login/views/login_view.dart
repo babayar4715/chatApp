@@ -40,7 +40,7 @@ class LoginView extends GetView<LoginController> {
               ),
               CustomButton(
                 onPressed: () {},
-                text: isLogin ? "Login" : "Register",
+                text: isLogin == null ? "Login" : "Register",
               ),
             ],
           ),

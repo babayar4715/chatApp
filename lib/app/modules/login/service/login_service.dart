@@ -15,4 +15,18 @@ class LoginService {
       return null;
     }
   }
+
+  static Future<UserCredential?> login(String email, String password) async {
+    try {
+      final user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return user;
+    } catch (e) {
+      print(e);
+
+      return null;
+    }
+  }
 }

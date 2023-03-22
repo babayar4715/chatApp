@@ -39,7 +39,7 @@ class LoginView extends GetView<LoginController> {
                 ],
               ),
               CustomButton(
-                onPressed: () async => await controller.loginRegister(),
+                onPressed: () async => await controller.loginRegister(isLogin),
                 text: isLogin == null ? "Login" : "Register",
               ),
             ],

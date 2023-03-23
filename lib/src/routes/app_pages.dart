@@ -12,7 +12,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.FLASH_CHAT;
+  static const FLASH_CHAT = Routes.FLASH_CHAT;
+  static const PRODUCT = Routes.PRODUCT;
 
   // Home = Product
 

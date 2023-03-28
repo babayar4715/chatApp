@@ -31,7 +31,7 @@ class ProductView extends GetView<ProductController> {
       ),
       body: Column(
         children: [
-          const StreamMessage(),
+          StreamMessage(controller.streamMessage()),
           SendMEssage(
             controller.textCrl,
             onPressed: () async => controller.sendMessage(),

@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:chat_app/src/utils/alert/alert.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +26,15 @@ class ProductController extends GetxController {
   }
 
   Future<void> sendMessage() async {
-    await HomeService.sendMessage(textCrl.text);
+    final sms = textCrl.text.trim();
+    textCrl.clear();
+
+    if (sms != '') {
+      await HomeService.sendMessage(sms);
+    }
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> streamMessage() {
+    return HomeService.streamMessage();
   }
 }

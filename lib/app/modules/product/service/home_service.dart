@@ -1,3 +1,4 @@
+import 'package:chat_app/src/components/buttons/message/stream_message.dart';
 import 'package:chat_app/src/data/message_model.dart';
 import 'package:chat_app/src/service/user_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,5 +22,10 @@ class HomeService {
       final Message message = Message(sender: sender.email!, sms: sms);
       await db.collection('messages').add(message.toJson());
     }
+  }
+
+  static Stream<QuerySnapshot<Map<String, dynamic>>> streamMessage() {
+    final db = FirebaseFirestore.instance;
+    return db.collection('messages').snapshots();
   }
 }

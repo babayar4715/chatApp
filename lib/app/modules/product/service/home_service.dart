@@ -19,13 +19,20 @@ class HomeService {
     final sender = FirebaseAuth.instance.currentUser;
     if (sender != null) {
       final db = FirebaseFirestore.instance;
-      final Message message = Message(sender: sender.email!, sms: sms);
+      final Message message = Message(
+        sender: sender.email!,
+        sms: sms,
+        dateTime: DateTime.now(),
+      );
       await db.collection('messages').add(message.toJson());
     }
   }
 
   static Stream<QuerySnapshot<Map<String, dynamic>>> streamMessage() {
     final db = FirebaseFirestore.instance;
-    return db.collection('messages').snapshots();
+    return db
+        .collection('messages')
+        .orderBy('dateTime', descending: true)
+        .snapshots();
   }
 }
